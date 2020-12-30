@@ -1,0 +1,20 @@
+{% extends 'dbms/main.html' %}
+{% load static %}
+{% block content %}
+<form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        {% if form.errors %}
+        <p>There are errors</p>
+        {% endif %}
+        <label for="id_password1" class="">Name:</label><br/>
+        <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username">
+        <br/>
+        <label for="id_password1" class="">Password:</label><br/>
+        <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1"><br/>
+        <label for="id_password2" class="">Password confirmation:</label><br/>
+        <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2"><br/>
+
+
+        <input type="submit" value="register"/>
+</form>
+{% endblock content %}

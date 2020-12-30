@@ -1,0 +1,22 @@
+{% extends 'dbms/main.html' %}
+{% load static %}
+{% block content %}
+<form method="post" actions="{% url 'city' %}">
+        {% csrf_token %}
+        <label>District</label><br/>
+        <input type="text" name="district" ><br/>
+        <label>City</label><br/>
+        <input type="text" name="city" ><br/>
+        <br/>
+        <label>DPR_NO</label><br/>
+        <input type="number" name="dpr_no"><br/>
+
+        <label>Balance</label><br/>
+        <input type="number" name="balance"><br/>
+
+        <label for="birthday">Date</label><br/>
+        <input type="date" name="date"><br/>
+
+        <input type="submit" value="Submit">
+</form>
+{% endblock content %}
