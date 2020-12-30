@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dbms'
+    'dbms',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +130,7 @@ STATICFILES_DIRS = [
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 #Images
 MEDIA_URL = '/images/'
 
