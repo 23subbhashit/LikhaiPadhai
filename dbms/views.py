@@ -1,6 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.models import User, Group
+
+group = Group(name = "Editor")
 
 from .models import GEO_TAGGING
 
@@ -42,8 +45,14 @@ def CityForm(request):
     return render(request,'dbms/cityform.html')
 
 def All_People(request):
-    if request.method == 'GET':  
-        users = GEO_TAGGING.objects.all()
+    if request.method == 'GET': 
+        users_in_group = Group.objects.get(name="Admin").user_set.all()
+        # print(users_in_group)
+        # print(request.user)
+        if request.user in users_in_group:
+            users = GEO_TAGGING.objects.all()
+        else:
+            users = {}
         return render(request, 'dbms/table.html', {'users' : users})
 
 def Fund_Form(request):

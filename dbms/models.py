@@ -11,6 +11,11 @@ class GEO_TAGGING(models.Model):
     balance = models.IntegerField(null=True)
     date = models.DateField(null=True)
 
+    class Meta:
+     permissions = (
+           ("view_records", "Can view records"),
+     )
+
     def __str__(self):
         return str(self.annuxure_id)
 
@@ -26,3 +31,15 @@ class FUND_DETAILS(models.Model):
 
     def __str__(self):
         return str(self.fund_id)
+class Admin(models.Model):
+    name = models.CharField(max_length=15,default="",null=True)
+    phonenumber = models.IntegerField(null=True)
+    address = models.CharField(max_length=15,default="",null=True)
+    user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+    class Meta:
+     permissions = (
+           ("is_admin", "Can view records"),
+     )
+
+    def __str__(self):
+        return str(self.name)
