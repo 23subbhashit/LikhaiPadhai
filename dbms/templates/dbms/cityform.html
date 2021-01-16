@@ -3,19 +3,17 @@
 {% block content %}
 <form method="post" actions="{% url 'city' %}">
         {% csrf_token %}
-        <label>District</label><br/>
-        <input type="text" name="district" ><br/>
-        <label>City</label><br/>
-        <input type="text" name="city" ><br/>
+        <label>Name</label><br/>
+        <input type="text" name="name" ><br/>
+        <label>USN</label><br/>
+        <input type="text" name="address"><br/>
+        <label>PhoneNumber</label><br/>
+        <input type="text" name="phonenumber" ><br/>
         <br/>
-        <label>DPR_NO</label><br/>
-        <input type="number" name="dpr_no"><br/>
+        <label>Address</label><br/>
+        <input type="text" name="usn"><br/>
 
-        <label>Balance</label><br/>
-        <input type="number" name="balance"><br/>
-
-        <label for="birthday">Date</label><br/>
-        <input type="date" name="date"><br/>
+        
 
         <input type="submit" value="Submit">
 </form>

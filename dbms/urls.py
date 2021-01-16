@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('',views.form,name="cityform"),
     #Register
-    path('city',views.CityForm,name="city"),
+    path('city',views.StudentForm,name="city"),
     path('register',views.register,name='register'),
     path('logout', views.logout, name = 'logout'),
     path('users', views.All_People, name = 'users')

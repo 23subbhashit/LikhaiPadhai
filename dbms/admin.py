@@ -2,6 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import GEO_TAGGING,Admin
-admin.site.register(GEO_TAGGING)
+from .models import Student,Teachers, Admin
+admin.site.register(Student)
 admin.site.register(Admin)
+admin.site.register(Teachers)

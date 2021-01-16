@@ -5,7 +5,7 @@ from django.contrib.auth.models import User, Group
 
 group = Group(name = "Editor")
 
-from .models import GEO_TAGGING
+from .models import Student
 
 # Create your views here.
 
@@ -31,14 +31,13 @@ def register(request):
     context = { 'form' : form }
     return render(request,'registration/registration.html',context)
 
-def CityForm(request):
+def StudentForm(request):
     if request.method=="POST":
-        district = request.POST['district']
-        city = request.POST['city']
-        dpr_no = request.POST['dpr_no']
-        balance = request.POST['balance']
-        date = request.POST['date']
-        G=GEO_TAGGING(district = district , city = city , dpr_no = dpr_no,balance = balance , date =date)
+        name = request.POST['name']
+        phonenumber = request.POST['phonenumber']
+        address = request.POST['address']
+        usn = request.POST['usn']
+        G=Student(name = name , phonenumber = phonenumber , address =address,usn = usn)
         G.user=request.user
         G.save()
         return redirect('cityform')
@@ -47,10 +46,8 @@ def CityForm(request):
 def All_People(request):
     if request.method == 'GET': 
         users_in_group = Group.objects.get(name="Admin").user_set.all()
-        # print(users_in_group)
-        # print(request.user)
         if request.user in users_in_group:
-            users = GEO_TAGGING.objects.all()
+            users = Student.objects.all()
         else:
             users = {}
         return render(request, 'dbms/table.html', {'users' : users})

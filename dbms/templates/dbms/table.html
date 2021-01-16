@@ -5,19 +5,19 @@
     <table class="table">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">District</th>
-      <th scope="col">City</th>
-      <th scope="col">Price</th>
+      <th scope="col">USN</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">PhoneNumber</th>
     </tr>
   </thead>
   <tbody>
   {% for user in users %} 
         <tr>
-          <th scope="row">{{ user.annuxure_id }}</th>
-          <td>{{ user.district }}</td>
-          <td>{{ user.city }}</td>
-          <td>{{ user.balance }}</td>
+          <th scope="row">{{ user.usn}}</th>
+          <td>{{ user.name }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.phonenumber }}</td>
         </tr>
    {% endfor %}
     
