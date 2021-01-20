@@ -45,11 +45,11 @@ def StudentForm(request):
 
 def All_People(request):
     if request.method == 'GET': 
-        # users_in_group = Group.objects.get(name="Admin").user_set.all()
-        # if request.user in users_in_group:
-        users = Student.objects.all()
-        # else:
-            # users = {}
+        users_in_group = Group.objects.get(name="Admin").user_set.all()
+        if request.user in users_in_group:
+            users = Student.objects.all()
+        else:
+            users = {}
         return render(request, 'dbms/table.html', {'users' : users})
 
 def Fund_Form(request):
