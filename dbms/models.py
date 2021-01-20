@@ -46,7 +46,7 @@ from django.contrib.auth.models import User
 #         return str(self.fund_id)
 class Admin(models.Model):
     name = models.CharField(max_length=15,default="",null=True)
-    phonenumber = models.IntegerField(null=True)
+    phonenumber = models.CharField(max_length=10,default="",null=True)
     address = models.CharField(max_length=15,default="",null=True)
     user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     class Meta:
@@ -59,7 +59,7 @@ class Admin(models.Model):
 class Student(models.Model):
     name = models.CharField(max_length=15,default="",null=True)
     usn = models.CharField(max_length=15,default="",null=True)
-    phonenumber = models.IntegerField(null=True)
+    phonenumber = models.CharField(max_length=10,default="",null=True)
     address = models.CharField(max_length=15,default="",null=True)
     user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     def __str__(self):
@@ -68,7 +68,7 @@ class Student(models.Model):
 
 class Teachers(models.Model):
     name = models.CharField(max_length=15,default="",null=True)
-    phonenumber = models.IntegerField(null=True)
+    phonenumber = models.CharField(max_length=10,default="",null=True)
     address = models.CharField(max_length=15,default="",null=True)
     user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     class Meta:
