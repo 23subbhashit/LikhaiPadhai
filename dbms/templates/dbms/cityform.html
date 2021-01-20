@@ -1,20 +1,24 @@
 {% extends 'dbms/main.html' %}
 {% load static %}
 {% block content %}
-<form method="post" actions="{% url 'city' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/cityform.css' %}">
+<div class="cityformpage">
+        <section class="login-panel">
+  <div class="left-side"></div>
+  <div class="right-side">
+    <h1>Form</h1>
+    <p>Register Your Information here</p>
+    <form method="post" actions="{% url 'city' %}">
         {% csrf_token %}
-        <label>Name</label><br/>
-        <input type="text" name="name" ><br/>
-        <label>USN</label><br/>
-        <input type="text" name="address"><br/>
-        <label>PhoneNumber</label><br/>
-        <input type="text" name="phonenumber" ><br/>
-        <br/>
-        <label>Address</label><br/>
-        <input type="text" name="usn"><br/>
-
-        
-
-        <input type="submit" value="Submit">
+        <input type="text" name="name" placeholder="Name" >
+        <input type="text" name="address" placeholder="Address">
+        <input type="text" name="phonenumber" placeholder="PhoneNumber">
+        <input type="text" name="usn" placeholder="USN">
+        <input type="submit" value="Submit" class="submit-btn">
 </form>
+   
+  </div>
+</section>
+</div>
+
 {% endblock content %}

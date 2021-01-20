@@ -19,6 +19,9 @@
 </head>
 <body>
 <style>
+.fa-map-marker-alt{
+  color : orange;
+}
 .navbar-default{
 	background: transparent;
 	width: 100%;
@@ -205,6 +208,7 @@
     {% if user.is_staff %}
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'users' %}" style="color:white;font-weight:bold;">
+        <i class="fas fa-user-graduate"></i>
           Student
           <span class="sr-only">(current)</span>
         </a>
@@ -213,7 +217,7 @@
     {% endif %}
     {% if user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'city' %}" style="color:white;font-weight:bold;">
+        <a class="nav-link" href="{% url 'city' %}" style="color:white;font-weight:bold;"><i class="fas fa-registered"></i>
           RegisterStudent</a>
       </li>
     {% endif %}
@@ -259,7 +263,9 @@
             <div class="container py-2">
                 <div class="row pb-4">
                     <div class="col-12 text-center">
-                        <div class="display-3">Our Team</div>
+                        <div class="display-3">
+                        Our Team
+                        </div>
                     </div>
                 </div>
                 <!-- cards -->
@@ -345,17 +351,20 @@
             <div class="footer-cta pt-5 pb-5">
                 <div class="row">
                     <div class="col-xl-4 col-md-4 mb-30">
+                    <br/>
                         <div class="single-cta">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt mb-4" style="color:#ff5e14;font-size:20px;"></i>
                             <div class="cta-text">
                                 <h4>Find us</h4>
                                 <span>BMSIT , Banglore , Karnataka</span>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-xl-4 col-md-4 mb-30">
+                    <br/>
                         <div class="single-cta">
-                            <i class="fas fa-phone"></i>
+                            <i class="fas fa-phone mb-4" style="color:#ff5e14;font-size:20px;"></i>
                             <div class="cta-text">
                                 <h4>Call us</h4>
                                 <span>+ 91 - 9140927375</span>
@@ -363,8 +372,9 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-4 mb-30">
+                    <br/>
                         <div class="single-cta">
-                            <i class="far fa-envelope-open"></i>
+                            <i class="far fa-envelope-open mb-4" style="color:#ff5e14;font-size:20px;"></i>
                             <div class="cta-text">
                                 <h4>Mail us</h4>
                                 <span>subbhashitmukherjee@gmail.com</span>
