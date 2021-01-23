@@ -142,5 +142,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 LOGIN_REDIRECT_URL = "/"
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'subbhashitmukherjee@gmail.com'
+EMAIL_HOST_PASSWORD = '735425nn'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'BMSIT ke Launde <noreply@23subbhashit.github.io>'
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
