@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User, Group
+from .forms import SignUpForm
 
 group = Group(name = "Editor")
 
@@ -18,7 +19,8 @@ def logout(request):
 
 def register(request):
     if request.method=="POST":
-        form = UserCreationForm(request.POST)
+        
+        form =SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
