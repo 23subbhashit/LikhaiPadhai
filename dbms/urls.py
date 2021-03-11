@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth_views
 from . import views
 urlpatterns = [
     path('',views.form,name="cityform"),
-    #Register
+    path('chatbot',views.chatbot,name="chatbot"),
     path('city',views.StudentForm,name="city"),
     path('register',views.register,name='register'),
     path('logout', views.logout, name = 'logout'),

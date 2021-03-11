@@ -13,6 +13,10 @@ from .models import Student
 def form(request):
     return render(request,'dbms/form.html')
 
+    
+def chatbot(request):
+    return render(request,'dbms/chatbot.html')
+
 def logout(request):
     logout(request)
     return redirect("/")
