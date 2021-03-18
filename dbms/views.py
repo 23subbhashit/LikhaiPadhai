@@ -15,7 +15,7 @@ def form(request):
 
     
 def chatbot(request):
-    return render(request,'dbms/chatbot.html')
+    return render(request,'dbms/index.html')
 
 def logout(request):
     logout(request)
