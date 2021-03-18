@@ -1,9 +1,13 @@
 body {
   font-family: "Lato", sans-serif;
-  
+  background: url("../images/Web\ 1920\ –\ 1.svg");
   background-size: cover;
 }
-
+@media (max-width:900px) {
+  body{
+  background: none;
+  }
+}
 /* ============= css related to chats =============== */
 
 .widget {
