@@ -1,6 +1,6 @@
 body {
   font-family: "Lato", sans-serif;
-  background: url("../images/body.png");
+  background: url("../images/body.svg");
   background-size: cover;
 }
 @media (max-width:900px) {
