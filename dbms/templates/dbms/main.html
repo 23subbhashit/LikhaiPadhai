@@ -12,10 +12,10 @@
      
      
      
-     
+     <link rel="icon" type = "image/png" href = "{% static 'images/school.svg' %}">
   
       
-    <title>DataEntry</title>
+    <title>Likhai Padhai</title>
 </head>
 <body>
 <style>
@@ -88,18 +88,18 @@
   color : orange;
 }
 .navbar-default{
-	background: gray;
+	background: #232F3E;
 	width: 100%;
   }
   .navbar-default.scrolled{
-	background: #ff0000;
+	background: #131A22;
 	width: 100%;
   }
   nav div ul li{
 	padding: 10px;
   }
   .footer-section {
-  background: #151414;
+  background: #232F3E;
   position: relative;
 }
 .footer-cta {
@@ -231,8 +231,51 @@
   font-size: 22px;
   transform: rotate(-6deg);
 }
+
+
+      .social-icons{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      }
+      .fab{
+      font-size: 80px;
+      cursor: pointer;
+      text-shadow: 0px 7px 10px rgba(0, 0, 0, 0.4);
+      padding-right: 15px;
+      transition: .4s;
+      }
+      .fab:hover{
+      transform: scale(1.3);
+      transition: .6s;
+      }
+      .fa-facebook-square{
+      color: #4867AA;
+      }
+      .fa-twitter{
+      color: #1DA1F2;
+      }
+      .fa-instagram{
+      color: #e4405f;
+      }
+      .fa-linkedin{
+      color: #0e76a8;
+      }
+      .fa-pinterest-square{
+      color: #bd081c;
+      }
+      @media(max-width: 500px){
+      .social-icons{
+      flex-direction: column;
+      }
+      .fab{
+      padding: 15px;
+      }
+      }
+
 .copyright-area{
-  background: #202020;
+  background: #131A22;
   padding: 25px 0;
 }
 .copyright-text p {
@@ -262,7 +305,7 @@
 }
 </style>
 <nav class="mb-1 navbar navbar-expand-lg navbar-default fixed-top">
-  <a class="navbar-brand" href="#" style="color:white"><img src="https://bmsit.ac.in/public/assets/images/bmslogo.png" style="width:300px;height:60px"/></a>
+  <a class="navbar-brand" href="#" style="color:white"><img src="{% static 'images/graduate.svg' %}" style="width:300px;height:60px"/></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
     aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
     <span class="fas fa-bars"></span>
@@ -441,7 +484,7 @@
                             <i class="fas fa-map-marker-alt mb-4" style="color:#ff5e14;font-size:20px;"></i>
                             <div class="cta-text">
                                 <h4>Find us</h4>
-                                <span>BMSIT , Banglore , Karnataka</span>
+                                <span style="color: #DDD;">BMSIT , Banglore , Karnataka</span>
                             </div>
                         </div>
                     </div>
@@ -452,7 +495,7 @@
                             <i class="fas fa-phone mb-4" style="color:#ff5e14;font-size:20px;"></i>
                             <div class="cta-text">
                                 <h4>Call us</h4>
-                                <span>+ 91 - 9140927375</span>
+                                <span style="color: #DDD;">+ 91 - 9140927375</span>
                             </div>
                         </div>
                     </div>
@@ -461,8 +504,8 @@
                         <div class="single-cta">
                             <i class="far fa-envelope-open mb-4" style="color:#ff5e14;font-size:20px;"></i>
                             <div class="cta-text">
-                                <h4>Mail us</h4>
-                                <span>subbhashitmukherjee@gmail.com</span>
+                                <h4 >Mail us</h4>
+                                <span style="color: #DDD;">subbhashitmukherjee@gmail.com</span>
                             </div>
                         </div>
                     </div>
@@ -470,19 +513,20 @@
             </div>
             <div class="footer-content pt-5 pb-5">
                 <div class="row">
-                    <div class="col-xl-5 col-lg-4 mb-50 offset-xl-1">
+                    <div class="col-xl-5 col-lg-4 mb-50">
                         <div class="footer-widget">
                             <div class="footer-logo">
-                                <a href="index.html"><img src="https://bmsit.ac.in/public/assets/images/bmslogo.png" class="img-fluid" alt="logo"></a>
+                                <a href="index.html"><img src={% static 'images/graduate.svg' %} class="img-fluid" alt="logo"  style="width:300px;height:60px"></a>
                             </div>
                             <div class="footer-text">
-                                <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
+                                <p style="color: #DDD;">Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
                                 elit,Lorem ipsum dolor sit amet.</p>
                             </div>
                             
                         </div>
                     </div>
-                    <div class="col-xl-5 col-lg-4 col-md-6 mb-30">
+                     
+                    <div class="col-xl-5 col-lg-4 col-md-6 mb-30 offset-xl-1">
                         <div class="footer-widget">
                             <div class="footer-widget-heading">
                                 <h3>Useful Links</h3>
@@ -491,7 +535,7 @@
                                 {% if user.is_authenticated %}
     {% if user.is_staff %}
       <li >
-        <a  href="{% url 'users' %}" >
+        <a  href="{% url 'users' %}" style="color: #DDD;" >
        
           Student
           <span class="sr-only">(current)</span>
@@ -502,11 +546,11 @@
     {% endif %}
     {% if user.is_authenticated %}
       <li>
-        <a  href="{% url 'city' %}">
+        <a  href="{% url 'city' %}" style="color: #DDD;">
           RegisterStudent</a>
       </li>
       <li>
-        <a href="{% url 'chatbot' %}" >
+        <a href="{% url 'chatbot' %}" style="color: #DDD;" >
         
           Chatbot
           <span class="sr-only">(current)</span>
@@ -515,19 +559,22 @@
     {% endif %}
       {% if user.is_authenticated %}
       <li>
-          <a " href="{% url 'cityform' %}">My account</a>
+          <a " href="{% url 'cityform' %}" style="color: #DDD;">My account</a>
 
       </li>
       <li>
-          <a  href="{% url 'logout' %}?next={% url 'cityform' %}">Log out</a>
+          <a  href="{% url 'logout' %}?next={% url 'cityform' %}" style="color: #DDD;">Log out</a>
 
       </li>
       {% else %}
+     
       <li >
-          <a href="{% url 'login' %}">Login</a>
+          <a href="{% url 'login' %}" style="color: #DDD;">Login</a>
+        
       </li>
       <li >
-          <a  href="{% url 'register' %}">Register</a>
+          <a href="{% url 'register' %}" style="color: #DDD;">Register</a>
+        
       </li>
       {% endif %}
                             </ul>
@@ -537,41 +584,8 @@
                 </div>
             </div>
         </div>
-         {% comment %} <div class="footer-content pt-5 pb-5">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-3 offset-lg-3">
-                        <div class="footer-widget">
-                            
-                            <div class="footer-social-icon">
-                                <center><span>Follow Us</span></center>
-                                <center>
-                                <a class="fb-ic" href="https://www.facebook.com/subbhashit.mukherjee">
-            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!-- Twitter -->
-          <a class="tw-ic" href="https://twitter.com/SMukhkherjee">
-            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!-- Google +-->
-          <a class="gplus-ic" href="mailto:subbhashitmukherjee@gmail.com">
-            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!--Linkedin -->
-          <a class="li-ic" href="https://www.linkedin.com/in/subbhashit-mukherjee-71849a148/"> 
-            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!--Instagram-->
-          <a class="ins-ic" href="https://www.instagram.com/subbhashit_2001/">
-            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          </center>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div> {% endcomment %}
+        
+        
         <div class="copyright-area">
             <div class="container">
                 <div class="row">
@@ -586,7 +600,7 @@
                                 {% if user.is_authenticated %}
     {% if user.is_staff %}
       <li >
-        <a  href="{% url 'users' %}" >
+        <a  href="{% url 'users' %}" style="color: #DDD;" >
        
           Student
           <span class="sr-only">(current)</span>
@@ -597,11 +611,11 @@
     {% endif %}
     {% if user.is_authenticated %}
       <li>
-        <a  href="{% url 'city' %}">
+        <a  href="{% url 'city' %}" style="color: #DDD;">
           RegisterStudent</a>
       </li>
       <li>
-        <a href="{% url 'chatbot' %}" >
+        <a href="{% url 'chatbot' %}" style="color: #DDD;" >
         
           Chatbot
           <span class="sr-only">(current)</span>
@@ -610,21 +624,21 @@
     {% endif %}
       {% if user.is_authenticated %}
       <li>
-          <a " href="{% url 'cityform' %}">My account</a>
+          <a " href="{% url 'cityform' %}" style="color: #DDD;">My account</a>
 
       </li>
       <li>
-          <a  href="{% url 'logout' %}?next={% url 'cityform' %}">Log out</a>
+          <a  href="{% url 'logout' %}?next={% url 'cityform' %}" style="color: #DDD;">Log out</a>
 
       </li>
       {% else %}
      
       <li >
-          <a href="{% url 'login' %}">Login</a>
+          <a href="{% url 'login' %}" style="color: #DDD;">Login</a>
         
       </li>
       <li >
-          <a href="{% url 'register' %}">Register</a>
+          <a href="{% url 'register' %}" style="color: #DDD;">Register</a>
         
       </li>
       {% endif %}
