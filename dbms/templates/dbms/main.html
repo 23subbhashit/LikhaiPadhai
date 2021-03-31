@@ -470,7 +470,7 @@
             </div>
             <div class="footer-content pt-5 pb-5">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="col-xl-5 col-lg-4 mb-50 offset-xl-1">
                         <div class="footer-widget">
                             <div class="footer-logo">
                                 <a href="index.html"><img src="https://bmsit.ac.in/public/assets/images/bmslogo.png" class="img-fluid" alt="logo"></a>
@@ -479,52 +479,99 @@
                                 <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
                                 elit,Lorem ipsum dolor sit amet.</p>
                             </div>
-                            {% comment %} <div class="footer-social-icon">
-                                <span>Follow us</span>
-                                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
-                                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
-                                <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
-                            </div> {% endcomment %}
+                            
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                    <div class="col-xl-5 col-lg-4 col-md-6 mb-30">
                         <div class="footer-widget">
                             <div class="footer-widget-heading">
                                 <h3>Useful Links</h3>
                             </div>
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">about</a></li>
-                                <li><a href="#">services</a></li>
-                                <li><a href="#">portfolio</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Our Services</a></li>
-                                <li><a href="#">Expert Team</a></li>
-                                <li><a href="#">Contact us</a></li>
-                                <li><a href="#">Latest News</a></li>
+                                {% if user.is_authenticated %}
+    {% if user.is_staff %}
+      <li >
+        <a  href="{% url 'users' %}" >
+       
+          Student
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      
+    {% endif %}
+    {% endif %}
+    {% if user.is_authenticated %}
+      <li>
+        <a  href="{% url 'city' %}">
+          RegisterStudent</a>
+      </li>
+      <li>
+        <a href="{% url 'chatbot' %}" >
+        
+          Chatbot
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+    {% endif %}
+      {% if user.is_authenticated %}
+      <li>
+          <a " href="{% url 'cityform' %}">My account</a>
+
+      </li>
+      <li>
+          <a  href="{% url 'logout' %}?next={% url 'cityform' %}">Log out</a>
+
+      </li>
+      {% else %}
+      <li >
+          <a href="{% url 'login' %}">Login</a>
+      </li>
+      <li >
+          <a  href="{% url 'register' %}">Register</a>
+      </li>
+      {% endif %}
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
-                        <div class="footer-widget">
-                            <div class="footer-widget-heading">
-                                <h3>Subscribe</h3>
-                            </div>
-                            <div class="footer-text mb-25">
-                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
-                            </div>
-                            <div class="subscribe-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Email Address">
-                                    <button><i class="fab fa-telegram-plane"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
+         {% comment %} <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-3 offset-lg-3">
+                        <div class="footer-widget">
+                            
+                            <div class="footer-social-icon">
+                                <center><span>Follow Us</span></center>
+                                <center>
+                                <a class="fb-ic" href="https://www.facebook.com/subbhashit.mukherjee">
+            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic" href="https://twitter.com/SMukhkherjee">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic" href="mailto:subbhashitmukherjee@gmail.com">
+            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic" href="https://www.linkedin.com/in/subbhashit-mukherjee-71849a148/"> 
+            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic" href="https://www.instagram.com/subbhashit_2001/">
+            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          </center>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div> {% endcomment %}
         <div class="copyright-area">
             <div class="container">
                 <div class="row">
@@ -536,11 +583,51 @@
                     <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                         <div class="footer-menu">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Privacy</a></li>
-                                <li><a href="#">Policy</a></li>
-                                <li><a href="#">Contact</a></li>
+                                {% if user.is_authenticated %}
+    {% if user.is_staff %}
+      <li >
+        <a  href="{% url 'users' %}" >
+       
+          Student
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      
+    {% endif %}
+    {% endif %}
+    {% if user.is_authenticated %}
+      <li>
+        <a  href="{% url 'city' %}">
+          RegisterStudent</a>
+      </li>
+      <li>
+        <a href="{% url 'chatbot' %}" >
+        
+          Chatbot
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+    {% endif %}
+      {% if user.is_authenticated %}
+      <li>
+          <a " href="{% url 'cityform' %}">My account</a>
+
+      </li>
+      <li>
+          <a  href="{% url 'logout' %}?next={% url 'cityform' %}">Log out</a>
+
+      </li>
+      {% else %}
+     
+      <li >
+          <a href="{% url 'login' %}">Login</a>
+        
+      </li>
+      <li >
+          <a href="{% url 'register' %}">Register</a>
+        
+      </li>
+      {% endif %}
                             </ul>
                         </div>
                     </div>
