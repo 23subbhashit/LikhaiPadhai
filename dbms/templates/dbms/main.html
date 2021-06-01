@@ -312,11 +312,36 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
     <ul class="navbar-nav ml-auto">
+   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" style="color:white;font-weight:bold;">
+           Courses </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="{% url 'cityform' %}">My account</a>
+          <a class="dropdown-item" href="{% url 'logout' %}?next={% url 'cityform' %}">Log out</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" style="color:white;font-weight:bold;">
+           Scholarship </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="{% url 'cityform' %}">My account</a>
+          <a class="dropdown-item" href="{% url 'logout' %}?next={% url 'cityform' %}">Log out</a>
+        </div>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'users' %}" style="color:white;font-weight:bold;">
+        
+          Buy a Course
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
     {% if user.is_authenticated %}
     {% if user.is_staff %}
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'users' %}" style="color:white;font-weight:bold;">
-        <i class="fas fa-user-graduate"></i>
+        
           Student
           <span class="sr-only">(current)</span>
         </a>
@@ -324,14 +349,15 @@
       
     {% endif %}
     {% endif %}
+    
     {% if user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'city' %}" style="color:white;font-weight:bold;"><i class="fas fa-registered"></i>
+        <a class="nav-link" href="{% url 'city' %}" style="color:white;font-weight:bold;">
           RegisterStudent</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'chatbot' %}" style="color:white;font-weight:bold;">
-        <i class="fas fa-user-graduate"></i>
+        
           Chatbot
           <span class="sr-only">(current)</span>
         </a>
@@ -341,7 +367,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false" style="color:white;font-weight:bold;">
-          <i class="fas fa-user"></i> Profile </a>
+           Profile </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
           <a class="dropdown-item" href="{% url 'cityform' %}">My account</a>
           <a class="dropdown-item" href="{% url 'logout' %}?next={% url 'cityform' %}">Log out</a>
@@ -351,7 +377,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false" style="color:white;font-weight:bold;">
-          <i class="fas fa-user"></i> Profile </a>
+           Profile </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
           <a class="dropdown-item" href="{% url 'login' %}">Login</a>
           <a class="dropdown-item" href="{% url 'register' %}">Register</a>
