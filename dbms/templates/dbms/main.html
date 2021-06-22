@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mdb.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     {% comment %} <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> {% endcomment %}
@@ -317,48 +318,44 @@
           aria-haspopup="true" aria-expanded="false" style="color:white;font-weight:bold;">
            Courses </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-          <a class="dropdown-item" href="{% url 'cityform' %}">My account</a>
-          <a class="dropdown-item" href="{% url 'logout' %}?next={% url 'cityform' %}">Log out</a>
+          <a class="dropdown-item" href="{% url 'allcourse' %}">CBSE</a>
+          <a class="dropdown-item" href="{% url 'allcourse' %}">ICSE</a>
+          <a class="dropdown-item" href="{% url 'allcourse' %}">JEE Mains/Advanced</a>
+          <a class="dropdown-item" href="{% url 'allcourse' %}">Gate</a>
         </div>
     </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false" style="color:white;font-weight:bold;">
-           Scholarship </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-          <a class="dropdown-item" href="{% url 'cityform' %}">My account</a>
-          <a class="dropdown-item" href="{% url 'logout' %}?next={% url 'cityform' %}">Log out</a>
-        </div>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="{% url 'users' %}" style="color:white;font-weight:bold;">
+   <li class="nav-item active">
+        <a class="nav-link" href="{% url 'chatbot' %}" style="color:white;font-weight:bold;">
         
-          Buy a Course
+          Scholarships
           <span class="sr-only">(current)</span>
         </a>
       </li>
-    {% if user.is_authenticated %}
-    {% if user.is_staff %}
+      </li>
+    
+    {% if user.is_staff%}
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'users' %}" style="color:white;font-weight:bold;">
         
-          Student
+          Upload Courses
           <span class="sr-only">(current)</span>
         </a>
+      </li>
+    {% else %}
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'city' %}" style="color:white;font-weight:bold;">
+          Enrolled Courses</a>
       </li>
       
     {% endif %}
     {% endif %}
     
     {% if user.is_authenticated %}
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'city' %}" style="color:white;font-weight:bold;">
-          RegisterStudent</a>
-      </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'chatbot' %}" style="color:white;font-weight:bold;">
         
-          Chatbot
+          FAQ
           <span class="sr-only">(current)</span>
         </a>
       </li>
@@ -682,6 +679,7 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/all.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
     <script>
 $(window).scroll(function(){
     $('nav').toggleClass('scrolled', $(this).scrollTop() > 0);

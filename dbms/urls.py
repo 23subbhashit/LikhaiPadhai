@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     path('',views.form,name="cityform"),
     path('chatbot',views.chatbot,name="chatbot"),
+    path('allcourse',views.allcourse,name="allcourse"),
     path('city',views.StudentForm,name="city"),
     path('register',views.register,name='register'),
     path('logout', views.logout, name = 'logout'),

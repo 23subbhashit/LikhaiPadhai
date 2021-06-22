@@ -13,6 +13,8 @@ from .models import Student
 def form(request):
     return render(request,'dbms/form.html')
 
+def allcourse(request):
+    return render(request,'dbms/classes/allcourse.html')
     
 def chatbot(request):
     return render(request,'dbms/index.html')
