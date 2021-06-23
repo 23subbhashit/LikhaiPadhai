@@ -15,6 +15,14 @@ def form(request):
 
 def allcourse(request):
     return render(request,'dbms/classes/allcourse.html')
+
+def tests(request):
+    return render(request,'dbms/tests/tests.html')
+
+def uploadcourse(request):
+    return render(request,'dbms/UploadCourses/uploadcourses.html')
+
+
     
 def chatbot(request):
     return render(request,'dbms/index.html')

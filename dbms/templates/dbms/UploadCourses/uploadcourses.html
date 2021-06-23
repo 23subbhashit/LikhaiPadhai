@@ -1,0 +1,63 @@
+{% extends 'dbms/main.html' %}
+{% load static %}
+{% block content %}
+ 
+<link rel="stylesheet" type="text/css" href="{% static 'css/upload.css' %}">
+
+<style>
+h1 {
+  font-size: 20px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+</style>
+
+
+<div class="card">
+   <div class="col-md-6 offset-md-3 mt-5">
+       
+        <center><h1>Upload New Course</h1></center>
+        <br/>
+        <form accept-charset="UTF-8" action="https://getform.io/f/{your-form-endpoint-goes-here}" method="POST"  target="_blank">
+          <div class="form-group">
+            <label for="exampleInputName">Course Name</label>
+            <input type="text" name="coursename" class="form-control" id="exampleInputName" placeholder="Enter course name" required="required">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1" required="required">Description</label>
+            <input type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter description">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Type</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="platform" required="required">
+              <option>CBSE</option>
+              <option>ICSE</option>
+              <option>JEE Mains/Advanced</option>
+              <option>Gate</option>
+            </select>
+          </div>
+          <hr>
+          <div class="form-group mt-3">
+            <label class="mr-2">Upload Your Banner</label>
+            <input type="file" accept="image/*" name="image">
+          </div>
+          <hr>
+          
+        <br/>
+          <center><button type="submit" class="btn btn-primary">Submit</button></center>
+        </form>
+    </div> 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+
+
+
+
+
+<script src="{% static 'js/upload.js' %}"></script>
+
+{% endblock content %}
