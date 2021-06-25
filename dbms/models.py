@@ -78,3 +78,13 @@ class Teachers(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+
+class Img(models.Model): 
+    coursename = models.CharField(max_length=50) 
+    description = models.CharField(max_length=50)
+    platform = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='images/')
+    user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+    def __str__(self):
+        return str(self.coursename)

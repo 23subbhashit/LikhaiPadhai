@@ -2,11 +2,12 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User, Group
-from .forms import SignUpForm
+from .forms import SignUpForm,Form
+
 
 group = Group(name = "Editor")
 
-from .models import Student
+from .models import Student,Img
 
 # Create your views here.
 
@@ -14,12 +15,22 @@ def form(request):
     return render(request,'dbms/form.html')
 
 def allcourse(request):
-    return render(request,'dbms/classes/allcourse.html')
+    Plants = Img.objects.all()
+    return render(request,'dbms/classes/allcourse.html',{'plant_images' : Plants})
 
 def tests(request):
     return render(request,'dbms/tests/tests.html')
 
 def uploadcourse(request):
+    if request.method=="POST":
+        animal = Img(user=request.user)  
+        form =Form(request.POST, request.FILES,instance=animal)
+        if form.is_valid():
+            animal.save()
+            return redirect('allcourse')
+        else:
+            print(form.errors)
+
     return render(request,'dbms/UploadCourses/uploadcourses.html')
 
 
