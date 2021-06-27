@@ -7,6 +7,7 @@ urlpatterns = [
     path('chatbot',views.chatbot,name="chatbot"),
     path('allcourse',views.allcourse,name="allcourse"),
     path('tests',views.tests,name="tests"),
+    path('<int:id>/detail/',views.detail,name='detail'),
     path('upload',views.uploadcourse,name='upload'),
     path('city',views.StudentForm,name="city"),
     path('register',views.register,name='register'),

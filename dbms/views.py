@@ -81,3 +81,10 @@ def All_People(request):
 
 def Fund_Form(request):
     return render(request, 'dbms/fund.html')
+
+
+def detail(request, id):
+    product=Img.objects.get(id=id)
+    context={'product':product}
+
+    return render(request,"dbms/Detail/detail.html",context)
