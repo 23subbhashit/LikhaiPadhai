@@ -37,7 +37,7 @@ def uploadcoursecontent(request):
     if request.method == 'POST': 
          
         title = request.POST['title']
-        video = request.POST['video']
+        video = request.FILES['video']
         name = request.POST['cousrename']
          
         content = Videos(title=title,video=video)
@@ -107,12 +107,12 @@ def detail(request, id):
         return redirect('cityform')
     try:
         G = Enroll.objects.get(img=product,user=request.user)
-        print(G)
+        #print(G)
         if G.id!=None:
             a=1
         else:
             a=0
-        print(a)
+        #print(a)
         context={'product':product,'enroll':a}
         return render(request,"dbms/Detail/detail.html",context)
     except:
@@ -128,6 +128,7 @@ def coursedetail(request, id):
     
     videos = Videos.objects.all()
     context={'product':product ,'videos':videos}
+    print(videos)
     
 
     return render(request,"dbms/Detail/content.html",context)

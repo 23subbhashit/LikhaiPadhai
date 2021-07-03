@@ -208,11 +208,12 @@
 <br/>
 
 <div>
- 
+
 {% for video in videos %}
+<h1>{{ video.title }}</h1> 
 <video width="500" height="500" controls >
 <source src="{{video.video.url}}" type="video/mp4">
-<b>{{video.title}}</b>
+
 </video>
 {% endfor %}
  
