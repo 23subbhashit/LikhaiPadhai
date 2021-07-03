@@ -14,7 +14,9 @@
         <h3 class="title">{{ plant.id }}</h3>
         <p class="description">{{ plant.description }}</p>
       </div>
-      <div class="course_card_footer"><a class="nav-item" href="{% url 'detail' plant.id %}">Add Review</a><a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a></div>
+      <div class="course_card_footer"><a class="nav-item" href="{% url 'detail' plant.id %}">Course Page</a>
+      {% comment %} <a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a> {% endcomment %}
+      </div>
     </div>
   </div>
 

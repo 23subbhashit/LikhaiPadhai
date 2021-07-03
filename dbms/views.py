@@ -7,7 +7,7 @@ from .forms import SignUpForm,Form
 
 group = Group(name = "Editor")
 
-from .models import Student,Img
+from .models import Student,Img,Videos,Enroll
 
 # Create your views here.
 
@@ -33,6 +33,19 @@ def uploadcourse(request):
 
     return render(request,'dbms/UploadCourses/uploadcourses.html')
 
+def uploadcoursecontent(request):
+    if request.method == 'POST': 
+         
+        title = request.POST['title']
+        video = request.POST['video']
+        name = request.POST['cousrename']
+         
+        content = Videos(title=title,video=video)
+        content.user= Img.objects.get(coursename=name)
+        content.save()
+        return redirect('cityform')
+
+    return render(request,'dbms/UploadCourses/uploadcoursecontent.html')
 
     
 def chatbot(request):
@@ -85,6 +98,37 @@ def Fund_Form(request):
 
 def detail(request, id):
     product=Img.objects.get(id=id)
+    
+    if request.method=="POST":
+        G=Enroll()
+        G.user=request.user
+        G.img=product
+        G.save()
+        return redirect('cityform')
+    try:
+        G = Enroll.objects.get(img=product,user=request.user)
+        print(G)
+        if G.id!=None:
+            a=1
+        else:
+            a=0
+        print(a)
+        context={'product':product,'enroll':a}
+        return render(request,"dbms/Detail/detail.html",context)
+    except:
+        pass
+    
+    
+    
     context={'product':product}
-
     return render(request,"dbms/Detail/detail.html",context)
+
+def coursedetail(request, id):
+    product=Img.objects.get(id=id)
+    
+    videos = Videos.objects.all()
+    context={'product':product ,'videos':videos}
+    
+
+    return render(request,"dbms/Detail/content.html",context)
+

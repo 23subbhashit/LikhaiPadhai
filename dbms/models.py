@@ -82,9 +82,27 @@ class Teachers(models.Model):
 
 class Img(models.Model): 
     coursename = models.CharField(max_length=50) 
-    description = models.CharField(max_length=50)
+    description = models.CharField(max_length=1000)
     platform = models.CharField(max_length=50)
     image = models.ImageField(upload_to='images/')
     user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     def __str__(self):
         return str(self.coursename)
+
+ 
+ 
+class Videos(models.Model):
+    title = models.CharField(max_length=100)
+    video = models.FileField(upload_to='videos/')
+    user = models.ForeignKey(Img, default=None, on_delete=models.CASCADE)
+     
+    class Meta:
+        verbose_name = 'video'
+        verbose_name_plural = 'videos'
+         
+    def __str__(self):
+        return self.title
+
+class Enroll(models.Model):
+    user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+    img = models.ForeignKey(Img, default=None, on_delete=models.CASCADE)

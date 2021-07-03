@@ -314,16 +314,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
     <ul class="navbar-nav ml-auto">
     {% if user.is_authenticated %}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false" style="color:white;font-weight:bold;">
-           Courses </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-          <a class="dropdown-item" href="{% url 'allcourse' %}">CBSE</a>
-          <a class="dropdown-item" href="{% url 'allcourse' %}">ICSE</a>
-          <a class="dropdown-item" href="{% url 'allcourse' %}">JEE Mains/Advanced</a>
-          <a class="dropdown-item" href="{% url 'allcourse' %}">Gate</a>
-        </div>
+      <li class="nav-item active">
+        
+        <a class="nav-link" href="{% url 'allcourse' %}" style="color:white;font-weight:bold;">
+        
+          Courses
+          <span class="sr-only">(current)</span>
+        </a>
     </li>
    <li class="nav-item active">
         <a class="nav-link" href="{% url 'tests' %}" style="color:white;font-weight:bold;">
@@ -340,6 +337,13 @@
         <a class="nav-link" href="{% url 'upload' %}" style="color:white;font-weight:bold;">
         
           Upload Courses
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'uploadcontent' %}" style="color:white;font-weight:bold;">
+        
+          Upload Course Content
           <span class="sr-only">(current)</span>
         </a>
       </li>

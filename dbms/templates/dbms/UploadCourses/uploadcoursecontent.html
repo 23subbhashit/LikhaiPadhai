@@ -1,0 +1,46 @@
+{% extends 'dbms/main.html' %}
+{% load static %}
+{% block content %}
+ 
+<link rel="stylesheet" type="text/css" href="{% static 'css/upload.css' %}">
+
+<style>
+h1 {
+  font-size: 20px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+</style>
+
+
+<div class="card">
+   <div class="col-md-6 offset-md-3 mt-5">
+       
+        <center><h1>Upload  Course Content</h1></center>
+        
+<form action="" method="POST">
+
+    {% csrf_token %}
+ 
+    <input type="text" name="title" placeholder="Enter Video Title here"><br/>
+    <input type="text" name="cousrename" placeholder="Enter Course Name here"><br/>
+    <input type="file" name="video" accept="video/*"><br/>
+    
+    <button type="submit"> Upload New Video </button>
+ 
+</form>
+    </div> 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+
+
+
+
+
+<script src="{% static 'js/upload.js' %}"></script>
+
+{% endblock content %}

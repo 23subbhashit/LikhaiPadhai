@@ -182,20 +182,18 @@
 						<h3 class="product-title">{{ product.coursename }}</h3>
 						
 						<p class="product-description">{{ product.description }}</p>
+						{% comment %} <h4 class="price"></h4> {% endcomment %}
 						
-						{% if enroll == 1 %}
+						{% if user.is_staff%}
               <div class="action">
 							<button class="add-to-cart btn btn-default" type="button">Enrolled</button>
-              <a class="add-to-cart btn btn-default" href="{% url 'coursedetail' product.id %}">Go to Course</a>
-							
+              <a class="add-to-cart btn btn-default" href="{% url 'detail' product.id %}">Go to Course</a>
+							{% comment %} <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button> {% endcomment %}
 						</div>
             {% else %}
 						<div class="action">
-            <form accept-charset="UTF-8" action="{% url 'detail' product.id %}" method="POST" enctype= multipart/form-data>
-            {% csrf_token %}
-							<button class="add-to-cart btn btn-default" type="submit">Enroll</button>
-							
-            </form>
+							<button class="add-to-cart btn btn-default" type="button">Enroll</button>
+							{% comment %} <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button> {% endcomment %}
 						</div>
             {% endif %}
 					</div>
@@ -209,7 +207,16 @@
 <br/>
 <br/>
 
-
+<div>
+ 
+{% for video in videos %}
+<video width="500" height="500" controls >
+<source src="{{video.video.url}}" type="video/mp4">
+<b>{{video.title}}</b>
+</video>
+{% endfor %}
+ 
+</div>
 
 <script>
 
