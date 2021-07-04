@@ -94,6 +94,7 @@ class Img(models.Model):
 class Videos(models.Model):
     title = models.CharField(max_length=100)
     video = models.FileField(upload_to='videos/%y')
+    description = models.CharField(max_length=1000,default=None)
     user = models.ForeignKey(Img, default=None, on_delete=models.CASCADE)
      
     class Meta:

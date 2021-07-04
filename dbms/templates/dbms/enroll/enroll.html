@@ -4,37 +4,29 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/allcourse.css' %}">
 
 
+
+
+
+
+
 <div class="row mx-auto">
+{% for i in enroll %} 
   <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="course_card">
-      <div class="course_card_img"><img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ" alt="course"/></div>
+      <div class="course_card_img"><img src="{{ i.img.image.url }}" alt="course"/></div>
       <div class="course_card_content">
-        <h3 class="title">Angular Typescript</h3>
-        <p class="description">When we are no longer able to change a situation - we are challenged to change ourselves. Spread love everywhere you go. Let no one ever come to you without leaving happier. Problems are not stop signs, they are guidelines.</p>
+        <h3 class="title">{{ i.img.coursename }}</h3>
+        <h3 class="title">{{ i.img.id }}</h3>
+        <p class="description">{{ i.img.description }}</p>
       </div>
-      <div class="course_card_footer"><a class="nav-item" href="https://www.smartcodehub.com/blog">Add Review</a><a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a></div>
+      <div class="course_card_footer"><a class="nav-item" href="{% url 'detail' i.img.id %}">Course Page</a>
+      {% comment %} <a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a> {% endcomment %}
+      </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="course_card">
-      <div class="course_card_img"><img src="https://cdn-images-1.medium.com/max/1600/1*xQW9Spiz8U0tNEuX_m2blw.jpeg" alt="course"/></div>
-      <div class="course_card_content">
-        <h3 class="title">Angular Tutorial</h3>
-        <p class="description">When we are no longer able to change a situation - we are challenged to change ourselves. Spread love everywhere you go. Let no one ever come to you without leaving happier. Problems are not stop signs, they are guidelines.</p>
-      </div>
-      <div class="course_card_footer"><a class="nav-item" href="https://www.smartcodehub.com/blog">Add Review</a><a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a></div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="course_card">
-      <div class="course_card_img"><img src="https://cdn-images-1.medium.com/max/720/1*aWXAr1bHFtP81is4XwYgrw.png" alt="course"/></div>
-      <div class="course_card_content">
-        <h3 class="title">Typescript Tutorial</h3>
-        <p class="description">When we are no longer able to change a situation - we are challenged to change ourselves. Spread love everywhere you go. Let no one ever come to you without leaving happier. Problems are not stop signs, they are guidelines.</p>
-      </div>
-      <div class="course_card_footer"><a class="nav-item" href="https://www.smartcodehub.com/blog">Add Review</a><a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a></div>
-    </div>
-  </div>
+
+{% endfor %}
+  
 </div>
 
 
@@ -46,93 +38,4 @@
 
 
 
-
-
-
-
-
-<div class="row mx-auto">
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="course_card">
-      <div class="course_card_img"><img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ" alt="course"/></div>
-      <div class="course_card_content">
-        <h3 class="title">Angular Typescript</h3>
-        <p class="description">When we are no longer able to change a situation - we are challenged to change ourselves. Spread love everywhere you go. Let no one ever come to you without leaving happier. Problems are not stop signs, they are guidelines.</p>
-      </div>
-      <div class="course_card_footer"><a class="nav-item" href="https://www.smartcodehub.com/blog">Add Review</a><a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a></div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="course_card">
-      <div class="course_card_img"><img src="https://cdn-images-1.medium.com/max/1600/1*xQW9Spiz8U0tNEuX_m2blw.jpeg" alt="course"/></div>
-      <div class="course_card_content">
-        <h3 class="title">Angular Tutorial</h3>
-        <p class="description">When we are no longer able to change a situation - we are challenged to change ourselves. Spread love everywhere you go. Let no one ever come to you without leaving happier. Problems are not stop signs, they are guidelines.</p>
-      </div>
-      <div class="course_card_footer"><a class="nav-item" href="https://www.smartcodehub.com/blog">Add Review</a><a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a></div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="course_card">
-      <div class="course_card_img"><img src="https://cdn-images-1.medium.com/max/720/1*aWXAr1bHFtP81is4XwYgrw.png" alt="course"/></div>
-      <div class="course_card_content">
-        <h3 class="title">Typescript Tutorial</h3>
-        <p class="description">When we are no longer able to change a situation - we are challenged to change ourselves. Spread love everywhere you go. Let no one ever come to you without leaving happier. Problems are not stop signs, they are guidelines.</p>
-      </div>
-      <div class="course_card_footer"><a class="nav-item" href="https://www.smartcodehub.com/blog">Add Review</a><a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a></div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="row mx-auto">
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="course_card">
-      <div class="course_card_img"><img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ" alt="course"/></div>
-      <div class="course_card_content">
-        <h3 class="title">Angular Typescript</h3>
-        <p class="description">When we are no longer able to change a situation - we are challenged to change ourselves. Spread love everywhere you go. Let no one ever come to you without leaving happier. Problems are not stop signs, they are guidelines.</p>
-      </div>
-      <div class="course_card_footer"><a class="nav-item" href="https://www.smartcodehub.com/blog">Add Review</a><a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a></div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="course_card">
-      <div class="course_card_img"><img src="https://cdn-images-1.medium.com/max/1600/1*xQW9Spiz8U0tNEuX_m2blw.jpeg" alt="course"/></div>
-      <div class="course_card_content">
-        <h3 class="title">Angular Tutorial</h3>
-        <p class="description">When we are no longer able to change a situation - we are challenged to change ourselves. Spread love everywhere you go. Let no one ever come to you without leaving happier. Problems are not stop signs, they are guidelines.</p>
-      </div>
-      <div class="course_card_footer"><a class="nav-item" href="https://www.smartcodehub.com/blog">Add Review</a><a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a></div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="course_card">
-      <div class="course_card_img"><img src="https://cdn-images-1.medium.com/max/720/1*aWXAr1bHFtP81is4XwYgrw.png" alt="course"/></div>
-      <div class="course_card_content">
-        <h3 class="title">Typescript Tutorial</h3>
-        <p class="description">When we are no longer able to change a situation - we are challenged to change ourselves. Spread love everywhere you go. Let no one ever come to you without leaving happier. Problems are not stop signs, they are guidelines.</p>
-      </div>
-      <div class="course_card_footer"><a class="nav-item" href="https://www.smartcodehub.com/blog">Add Review</a><a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a></div>
-    </div>
-  </div>
-</div>
 {% endblock content %}

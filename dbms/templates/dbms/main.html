@@ -348,13 +348,13 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'city' %}" style="color:white;font-weight:bold;">
+        <a class="nav-link" href="{% url 'enroll' %}" style="color:white;font-weight:bold;">
           Enrolled Courses</a>
       </li>
     {% else %}
       {% if user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'city' %}" style="color:white;font-weight:bold;">
+        <a class="nav-link" href="{% url 'enroll' %}" style="color:white;font-weight:bold;">
           Enrolled Courses</a>
       </li>
       

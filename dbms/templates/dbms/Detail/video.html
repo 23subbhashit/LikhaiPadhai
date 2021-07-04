@@ -1,0 +1,31 @@
+{% extends 'dbms/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+video{
+    width:800px;
+    height:400px;
+}
+</style>
+
+<br/>
+<br/>
+
+<div class="container" style="background-szie:cover">
+<center>
+<h1>{{videos.title}}</h1>
+<br/>
+
+<video  controls >
+<source src="{{videos.video.url}}" type="video/mp4">
+
+</video>
+<center>
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+{% endblock content %}

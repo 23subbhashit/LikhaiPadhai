@@ -39,8 +39,9 @@ def uploadcoursecontent(request):
         title = request.POST['title']
         video = request.FILES['video']
         name = request.POST['cousrename']
+        description = request.POST['description']
          
-        content = Videos(title=title,video=video)
+        content = Videos(title=title,video=video,description=description)
         content.user= Img.objects.get(coursename=name)
         content.save()
         return redirect('cityform')
@@ -81,6 +82,8 @@ def StudentForm(request):
         G.user=request.user
         G.save()
         return redirect('cityform')
+    
+    
     return render(request,'dbms/cityform.html')
 
 def All_People(request):
@@ -104,7 +107,7 @@ def detail(request, id):
         G.user=request.user
         G.img=product
         G.save()
-        return redirect('cityform')
+        return redirect('enroll')
     try:
         G = Enroll.objects.get(img=product,user=request.user)
         #print(G)
@@ -132,4 +135,18 @@ def coursedetail(request, id):
     
 
     return render(request,"dbms/Detail/content.html",context)
+
+def videocontent(request, id):
+    videos=Videos.objects.get(id=id)
+    context={'videos':videos}
+    
+
+    return render(request,"dbms/Detail/video.html",context)
+
+def enrollcourse(request):
+    enrolled = Enroll.objects.all().filter(user=request.user)
+    # for i in enrolled:
+    #     print(i.user.username)
+    context = {'enroll' : enrolled}
+    return render(request,"dbms/enroll/enroll.html",context)
 
