@@ -7,10 +7,11 @@ from .models import Img,Videos
 class SignUpForm(UserCreationForm):
     username = forms.CharField(max_length=30)
     email = forms.EmailField(max_length=200)
+    is_staff = forms.BooleanField(required=False)
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2', )
+        fields = ('username', 'email', 'password1', 'password2','is_staff' )
 
     
 class Form(forms.ModelForm): 

@@ -12,7 +12,13 @@ from .models import Student,Img,Videos,Enroll
 # Create your views here.
 
 def form(request):
+    
     return render(request,'dbms/form.html')
+
+def adminhome(request):
+    if request.user.is_staff != True:
+        request.user.is_staff = True
+    return render(request,'dbms/adminhome.html')
 
 def allcourse(request):
     Plants = Img.objects.all()
@@ -71,6 +77,20 @@ def register(request):
         form = UserCreationForm()
     context = { 'form' : form }
     return render(request,'registration/registration.html',context)
+
+def adminregister(request):
+    if request.method=="POST":
+        form =SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username = username ,password = password)
+            return render(request,'registration/adminhome.html')
+    else:
+        form = UserCreationForm()
+    context = { 'form' : form }
+    return render(request,'registration/adminregister.html')
 
 def StudentForm(request):
     if request.method=="POST":

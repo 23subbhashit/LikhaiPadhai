@@ -4,6 +4,8 @@ from django.contrib.auth import views as auth_views
 from . import views
 urlpatterns = [
     path('',views.form,name="cityform"),
+     path('adminhome',views.adminhome,name="adminhome"),
+    path('adminregister',views.adminregister,name="adminregister"),
     path('chatbot',views.chatbot,name="chatbot"),
     path('allcourse',views.allcourse,name="allcourse"),
     path('uploadcontent',views.uploadcoursecontent,name="uploadcontent"),

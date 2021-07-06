@@ -1,0 +1,49 @@
+{% extends 'dbms/main.html' %}
+{% load static %}
+{% block content %}
+ <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+<div class="container" style="width:100%">
+        <!-- <github-card data-user="23subbhashit" ></github-card> -->
+        <main class="main">
+	<div class="wrapper">
+		<div class="card">
+			<div class="title">
+				<h1 class="title title-large">Sign UP</h1>
+				<p class="title title-subs">Already a user? <span><a href="{% url 'login' %}" class="linktext">Sign In</a></span></p>
+			</div>
+			<form class="form" method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            {% if form.errors %}
+        <p>There are errors</p>
+        {{ form.errors }}
+        {% endif %}
+				<div class="form-group">
+                <input type="text" name="username" maxlength="150" class="input-field" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username" placeholder="Username">
+					
+				</div>
+				<div class="form-group">
+					<input type="email" name="email" id="email" class="input-field" placeholder="Email">
+				</div>
+				<div class="form-group">
+					<input type="password" name="password1" class="input-field" autocomplete="new-password" required="" id="id_password1" placeholder="Password">
+				</div>
+                <div class="form-group">
+					<input type="password" name="password2" class="input-field" autocomplete="new-password" required="" id="id_password2" placeholder="Confirm Password">
+				</div>
+                <div class="form-group">
+                    <center>
+					<input type="checkbox" name="is_staff"  value="True" checked >
+                    <center>
+				</div>
+				<div class="form-group justify-content-center">
+					<input type="submit" class="input-submit" value="Register"/>
+				</div>
+			</form>
+			
+			
+		</div>
+	</div>
+   
+    </div>
+
+{% endblock content %}
