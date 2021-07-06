@@ -86,6 +86,7 @@ def adminregister(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user = authenticate(username = username ,password = password)
+            login(request,user)
             return render(request,'registration/adminhome.html')
     else:
         form = UserCreationForm()
