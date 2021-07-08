@@ -107,3 +107,12 @@ class Videos(models.Model):
 class Enroll(models.Model):
     user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     img = models.ForeignKey(Img, default=None, on_delete=models.CASCADE)
+
+
+class Exam(models.Model): 
+    examname = models.CharField(max_length=50) 
+    description = models.CharField(max_length=1000)
+    image = models.ImageField(upload_to='images/')
+    user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+    def __str__(self):
+        return str(self.examname)

@@ -1,0 +1,27 @@
+{% extends 'dbms/main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/allcourse.css' %}">
+
+
+<div class="row mx-auto">
+{% for plant in plant_images %} 
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="course_card">
+      <div class="course_card_img"><img src="{{ plant.image.url }}" alt="course"/></div>
+      <div class="course_card_content">
+        <h3 class="title">{{ plant.coursename }}</h3>
+        <h3 class="title">{{ plant.id }}</h3>
+        <p class="description">{{ plant.description }}</p>
+      </div>
+      <div class="course_card_footer"><a class="nav-item" href="{% url 'examdetail' plant.id %}">Exam Page</a>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+  
+</div>
+
+
+{% endblock content %}

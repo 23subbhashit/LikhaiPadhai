@@ -2,13 +2,12 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User, Group
-from .forms import SignUpForm,Form
+from .forms import SignUpForm,Form,ExamForm
 
 
 group = Group(name = "Editor")
 
-from .models import Student,Img,Videos,Enroll
-
+from .models import Student,Img,Videos,Enroll,Exam
 # Create your views here.
 
 def form(request):
@@ -171,3 +170,27 @@ def enrollcourse(request):
     context = {'enroll' : enrolled}
     return render(request,"dbms/enroll/enroll.html",context)
 
+def uploadexam(request):
+    if request.method=="POST":
+        animal = Exam(user=request.user)  
+        form =ExamForm(request.POST, request.FILES,instance=animal)
+        if form.is_valid():
+            animal.save()
+            return redirect('allcourse')
+        else:
+            print(form.errors)
+
+    return render(request,'dbms/test/uploadexam.html')
+
+def allexams(request):
+    Plants = Exam.objects.all()
+    return render(request,'dbms/test/allexams.html',{'plant_images' : Plants})
+
+
+def examdetail(request, id):
+    product=Exam.objects.get(id=id)
+    
+    
+    
+    context={'product':product}
+    return render(request,"dbms/test/examdetail.html",context)

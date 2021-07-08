@@ -1,7 +1,7 @@
 from django import forms 
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Img,Videos
+from .models import Img,Videos,Exam
 
 
 class SignUpForm(UserCreationForm):
@@ -18,6 +18,12 @@ class Form(forms.ModelForm):
   
     class Meta: 
         model = Img
+        exclude = ('user',)
+
+class ExamForm(forms.ModelForm): 
+  
+    class Meta: 
+        model = Exam
         exclude = ('user',)
 
 class VideoForm(forms.ModelForm): 
