@@ -203,6 +203,9 @@ def examdetail(request, id):
     context={'product':product}
     return render(request,"dbms/test/examdetail.html",context)
 
+
+
+
 def uploadquizcontent(request):
     if request.method == 'POST': 
          
@@ -220,3 +223,23 @@ def uploadquizcontent(request):
         return redirect('cityform')
 
     return render(request,'dbms/quiz/uploadquizcontent.html')
+
+
+
+def quizresult(request, id):
+
+    exam=Exam.objects.get(id=id)
+    
+
+    quiz=Quiz.objects.all().filter(user=exam)
+    c = 0
+    c1 = 0
+    for i in quiz:
+        ans = request.POST[str(i.id)]
+        if ans == i.answer:
+            c1+=1
+        c+=1
+
+    context={'videos':exam,'all' : c ,'correct' : c1}
+
+    return render(request,"dbms/test/quizresults.html",context)

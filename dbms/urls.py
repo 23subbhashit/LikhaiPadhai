@@ -17,6 +17,7 @@ urlpatterns = [
     path('<int:id>/examdetail/',views.examdetail,name='examdetail'),
     path('<int:id>/content/',views.coursedetail,name='coursedetail'),
     path('<int:id>/quizcontent/',views.quizdetail,name='quizdetail'),
+    path('<int:id>/quizresult/',views.quizresult,name='quizresult'),
     path('<int:id>/video/',views.videocontent,name='video'),
     path('upload',views.uploadcourse,name='upload'),
     path('uploadexam',views.uploadexam,name='uploadexam'),

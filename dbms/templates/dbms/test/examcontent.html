@@ -1,270 +1,80 @@
-{% extends 'dbms/main.html' %}
+
 {% load static %}
-{% block content %}
-{% comment %} <div class="row">
-	<h1>Detail: {{ product.coursename }}</h1>	
-</div> {% endcomment %}
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+     
+     
+     
+     <link rel="icon" type = "image/png" href = "{% static 'images/school.svg' %}">
+  
+      
+    <title>Likhai Padhai</title>
+</head>
+<body>
 <style>
-.preview {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
-  @media screen and (max-width: 996px) {
-    .preview {
-      margin-bottom: 20px; } }
-
-.preview-pic {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
-
-.preview-thumbnail.nav-tabs {
-  border: none;
-  margin-top: 15px; }
-  .preview-thumbnail.nav-tabs li {
-    width: 18%;
-    margin-right: 2.5%; }
-    .preview-thumbnail.nav-tabs li img {
-      max-width: 100%;
-      display: block; }
-    .preview-thumbnail.nav-tabs li a {
-      padding: 0;
-      margin: 0; }
-    .preview-thumbnail.nav-tabs li:last-of-type {
-      margin-right: 0; }
-
-.tab-content {
-  overflow: hidden; }
-  .tab-content img {
-    width: 100%;
-    -webkit-animation-name: opacity;
-            animation-name: opacity;
-    -webkit-animation-duration: .3s;
-            animation-duration: .3s; }
-
-.card {
-  margin-top: 50px;
-  padding: 3em;
-  line-height: 1.5em; }
-
-@media screen and (min-width: 997px) {
-  .wrapper {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; } }
-
-.details {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
-
-.colors {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
-
-.product-title, .price, .sizes, .colors {
-  text-transform: UPPERCASE;
-  font-weight: bold; }
-
-.checked, .price span {
-  color: #ff9f1a; }
-
-.product-title, .rating, .product-description, .price, .vote, .sizes {
-  margin-bottom: 15px; }
-
-.product-title {
-  margin-top: 0; }
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.size {
-  margin-right: 10px; }
-  .size:first-of-type {
-    margin-left: 40px; }
-
-.color {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
-  height: 2em;
-  width: 2em;
-  border-radius: 2px; }
-  .color:first-of-type {
-    margin-left: 20px; }
-
-.add-to-cart, .like {
-  background: #ff9f1a;
-  padding: 1.2em 1.5em;
-  border: none;
-  text-transform: UPPERCASE;
-  font-weight: bold;
-  color: #fff;
-  -webkit-transition: background .3s ease;
-          transition: background .3s ease; }
-  .add-to-cart:hover, .like:hover {
-    background: #b36800;
-    color: #fff; }
-
-.not-available {
-  text-align: center;
-  line-height: 2em; }
-  .not-available:before {
-    font-family: fontawesome;
-    content: "\f00d";
-    color: #fff; }
-
-.orange {
-  background: #ff9f1a; }
-
-.green {
-  background: #85ad00; }
-
-.blue {
-  background: #0076ad; }
-
-.tooltip-inner {
-  padding: 1.3em; }
-
-@-webkit-keyframes opacity {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(3);
-            transform: scale(3); }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
-
-@keyframes opacity {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(3);
-            transform: scale(3); }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
 
 
-.pricing-card {
-  width: 700px;
-  font-family: "Open Sans";
-  display: flex;
-  margin: 75px auto;
-  box-shadow: 15px 30px 30px 0 rgba(220, 36, 48, 0.15);
-}
-
-.card-left {
-  text-align: center;
-  background: linear-gradient(65deg, #7b4397, #dc2430);
-  color: #fff;
-  width: 30%;
-  padding: 85px 20px;
-  border-radius: 6px 0 0 6px;
-}
-
-.card-left h1 {
-  text-transform: uppercase;
-  margin-bottom: 2px;
-  font-size: 24px;
-}
-
-.card-left p {
-  font-size: 60px;
-}
-
-.dollar {
-  font-size: 24px;
-  position: relative;
-  top: -26px;
-}
-
-.card-right {
-  text-align: left;
-  background: #fff;
-  width: 70%;
-  color: #dc2430;
-  border-radius: 0 6px 6px 0;
-  padding: 40px 40px;
-}
-
-.card-right h6 {
-  margin-bottom: 15px;
-  color: #292e31;
-  opacity: 0.9;
-}
-
-.card-right ul {
-  margin-bottom: 40px;
-}
-
-.card-right li {
-  padding-bottom: 6px;
-}
-
-.button1 {
-  text-decoration: none;
-  color: #fff;
-  background: #dc2430;
-  padding: 20px 80px;
-  border-radius: 100px;
-  transition: all 500ms ease;
-}
-
-.button1:hover {
-  background: #7b4397;
+#container10 {
+  width: 60%;
+  background: #199fdb;
+  margin: 20px auto;
+  overflow: auto;
+  padding: 25px;
   color: white;
+  font-family: arial;
+  font-size: 14px;
+}
+
+header {
+  text-align: center;
+  border-bottom: #fff dashed 1px;
+}
+
+header h1,
+header p {
+  margin 0;
+  padding 0;
+}
+
+header p {
+  margin-top: 5px;
+  color: #000;
+}
+
+section {
+  min-height: 400px;
+}
+
+footer {
+  text-align: center;
+}
+
+input[type="submit"] {
+  background: #f06226;
+  border: 0;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+#results h3 {
+  background: #f06226;
+  padding: 10px;
+  margin: 10px 0;
+}
+#results span {
+  color: #000;
+  font-weight: bold; 
 }
 </style>
 
 
 
 
-<div class="container">
-		<div class="card">
-			<div class="container-fliud">
-				<div class="wrapper row">
-                {{ product.id }}
-					{% comment %} <div class="preview col-md-6">
-						
-						
-						
-					</div>
-					<div class="details col-md-6">
-						<h3 class="product-title">{{ product.coursename }}</h3>
-						
-						<p class="product-description">{{ product.description }}</p>
-
-            <br/>
-            <br/>
-						<p class="product-title">  Author : {{product.user.username }}</p>
-						
-					</div> {% endcomment %}
-				</div>
-			</div>
-		</div>
-	</div>
 
 <br/>
 <br/>
@@ -276,25 +86,43 @@ ul {
 
  
 </div>
-{% for video in videos %}
-<div class="pricing-card">
-    <div class="card-left">
-        <p><span class="dollar">{{ video.id }}</p>
-    </div>
-    {% comment %} <div class="card-right">
-        <h6>{{ video.description }}</h6>
-        <br/>
-        <br/>
-        <a href="{% url 'video' video.id %}" class="button1">Go To Video</a>
 
-    </div> {% endcomment %}
+<div id="container10">
+  <header>
+    <h1>{{ product.examname }}</h1>
+  </header>
+  <section>
+    <div id="results"></div>
+    <form accept-charset="UTF-8" 
+    action="{% url 'quizresult' product.id%}"
+    method="POST" enctype= multipart/form-data name="quizForm">
+    {% csrf_token %}
+    {% for video in videos %}
+      <h3>{{ video.question }}</h3>
+      <input type="radio" name="{{ video.id }}" value="{{ video.op1 }}" id="q1a">a. {{ video.op1 }}<br>
+      <input type="radio" name="{{ video.id }}" value="{{ video.op2 }}" id="q1b">b. {{ video.op2 }}<br>
+      <input type="radio" name="{{ video.id }}" value="{{ video.op3 }}" id="q1c">c. {{ video.op3 }}<br>
+      <input type="radio" name="{{ video.id }}" value="{{ video.op4 }}" id="q1d">d. {{ video.op4 }}<br>
+    {% endfor %}
+      <br><br> 
+      <center>
+      <input type="submit" value="Submit Answers">
+      <center>
+    </form>
+  </section>
+  <footer>
+    <p>Copyright &copy; 2021</p>
+  </footer> 
 </div>
-{% endfor %}
+
+
+
+<br/>
 
 <script>
 
 
 </script>
 
+</body>
 
-{% endblock content %}
