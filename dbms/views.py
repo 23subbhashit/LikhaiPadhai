@@ -7,7 +7,7 @@ from .forms import SignUpForm,Form,ExamForm
 
 group = Group(name = "Editor")
 
-from .models import Student,Img,Videos,Enroll,Exam
+from .models import Student,Img,Videos,Enroll,Exam,Quiz
 # Create your views here.
 
 def form(request):
@@ -148,13 +148,21 @@ def detail(request, id):
 
 def coursedetail(request, id):
     product=Img.objects.get(id=id)
-    
-    videos = Videos.objects.all()
+    videos = Videos.objects.all().filter(user = product)
     context={'product':product ,'videos':videos}
     print(videos)
     
 
     return render(request,"dbms/Detail/content.html",context)
+
+def quizdetail(request, id):
+    product = Exam.objects.get(id=id)
+    videos = Quiz.objects.all().filter(user = product)
+    context={'product':product ,'videos':videos}
+    print(videos)
+    
+
+    return render(request,"dbms/test/examcontent.html",context)
 
 def videocontent(request, id):
     videos=Videos.objects.get(id=id)
@@ -194,3 +202,21 @@ def examdetail(request, id):
     
     context={'product':product}
     return render(request,"dbms/test/examdetail.html",context)
+
+def uploadquizcontent(request):
+    if request.method == 'POST': 
+         
+        question = request.POST['question']
+        name = request.POST['examname'] 
+        op1 = request.POST['op1']
+        op2 = request.POST['op2']
+        op3 = request.POST['op3']
+        op4 = request.POST['op4']
+        answer = request.POST['answer']
+         
+        content = Quiz(question=question,op1=op1,op2=op2,op3=op3,op4=op4,answer=answer)
+        content.user= Exam.objects.get(examname=name)
+        content.save()
+        return redirect('cityform')
+
+    return render(request,'dbms/quiz/uploadquizcontent.html')

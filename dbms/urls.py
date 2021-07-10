@@ -9,12 +9,14 @@ urlpatterns = [
     path('chatbot',views.chatbot,name="chatbot"),
     path('allcourse',views.allcourse,name="allcourse"),
     path('uploadcontent',views.uploadcoursecontent,name="uploadcontent"),
+    path('uploadquizcontent',views.uploadquizcontent,name="uploadquizcontent"),
     path('enroll',views.enrollcourse,name="enroll"),
     path('tests',views.tests,name="tests"),
     path('exams',views.allexams,name="exams"),
     path('<int:id>/detail/',views.detail,name='detail'),
     path('<int:id>/examdetail/',views.examdetail,name='examdetail'),
     path('<int:id>/content/',views.coursedetail,name='coursedetail'),
+    path('<int:id>/quizcontent/',views.quizdetail,name='quizdetail'),
     path('<int:id>/video/',views.videocontent,name='video'),
     path('upload',views.uploadcourse,name='upload'),
     path('uploadexam',views.uploadexam,name='uploadexam'),
@@ -22,6 +24,8 @@ urlpatterns = [
     path('register',views.register,name='register'),
     path('logout', views.logout, name = 'logout'),
     path('users', views.All_People, name = 'users'),
+
+
     path('reset_password',
     auth_views.PasswordResetView.as_view(template_name="dbms/password_reset_form.html"),name="rp"),
 

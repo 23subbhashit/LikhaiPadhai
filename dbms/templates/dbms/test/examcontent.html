@@ -93,6 +93,11 @@
 .product-title {
   margin-top: 0; }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .size {
   margin-right: 10px; }
   .size:first-of-type {
@@ -160,6 +165,77 @@
     opacity: 1;
     -webkit-transform: scale(1);
             transform: scale(1); } }
+
+
+.pricing-card {
+  width: 700px;
+  font-family: "Open Sans";
+  display: flex;
+  margin: 75px auto;
+  box-shadow: 15px 30px 30px 0 rgba(220, 36, 48, 0.15);
+}
+
+.card-left {
+  text-align: center;
+  background: linear-gradient(65deg, #7b4397, #dc2430);
+  color: #fff;
+  width: 30%;
+  padding: 85px 20px;
+  border-radius: 6px 0 0 6px;
+}
+
+.card-left h1 {
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  font-size: 24px;
+}
+
+.card-left p {
+  font-size: 60px;
+}
+
+.dollar {
+  font-size: 24px;
+  position: relative;
+  top: -26px;
+}
+
+.card-right {
+  text-align: left;
+  background: #fff;
+  width: 70%;
+  color: #dc2430;
+  border-radius: 0 6px 6px 0;
+  padding: 40px 40px;
+}
+
+.card-right h6 {
+  margin-bottom: 15px;
+  color: #292e31;
+  opacity: 0.9;
+}
+
+.card-right ul {
+  margin-bottom: 40px;
+}
+
+.card-right li {
+  padding-bottom: 6px;
+}
+
+.button1 {
+  text-decoration: none;
+  color: #fff;
+  background: #dc2430;
+  padding: 20px 80px;
+  border-radius: 100px;
+  transition: all 500ms ease;
+}
+
+.button1:hover {
+  background: #7b4397;
+  color: white;
+}
 </style>
 
 
@@ -169,12 +245,9 @@
 		<div class="card">
 			<div class="container-fliud">
 				<div class="wrapper row">
-					<div class="preview col-md-6">
+                {{ product.id }}
+					{% comment %} <div class="preview col-md-6">
 						
-						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1"><img src="{{ product.image.url }}" width=300 height=400 /></div>
-						  
-						</div>
 						
 						
 					</div>
@@ -182,15 +255,12 @@
 						<h3 class="product-title">{{ product.coursename }}</h3>
 						
 						<p class="product-description">{{ product.description }}</p>
+
+            <br/>
+            <br/>
+						<p class="product-title">  Author : {{product.user.username }}</p>
 						
-						
-              <div class="action">
-							
-              <a class="add-to-cart btn btn-default" href="{% url 'quizdetail' product.id %}">Attempt Quiz</a>
-							
-						</div>
-            
-					</div>
+					</div> {% endcomment %}
 				</div>
 			</div>
 		</div>
@@ -201,7 +271,25 @@
 <br/>
 <br/>
 
+<div>
 
+
+ 
+</div>
+{% for video in videos %}
+<div class="pricing-card">
+    <div class="card-left">
+        <p><span class="dollar">{{ video.id }}</p>
+    </div>
+    {% comment %} <div class="card-right">
+        <h6>{{ video.description }}</h6>
+        <br/>
+        <br/>
+        <a href="{% url 'video' video.id %}" class="button1">Go To Video</a>
+
+    </div> {% endcomment %}
+</div>
+{% endfor %}
 
 <script>
 

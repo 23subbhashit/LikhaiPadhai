@@ -1,0 +1,49 @@
+{% extends 'dbms/main.html' %}
+{% load static %}
+{% block content %}
+ 
+<link rel="stylesheet" type="text/css" href="{% static 'css/upload.css' %}">
+
+<style>
+h1 {
+  font-size: 20px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+</style>
+
+
+<div class="card">
+   <div class="col-md-6 offset-md-3 mt-5">
+       
+        <center><h1>Upload New Question</h1></center>
+        
+<form action="" method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    <input type="text" name="examname" placeholder="Enter exam name"><br/>
+    <input type="text" name="question" placeholder="Enter question"><br/>
+    <input type="text" name="op1" placeholder="Enter option 1"><br/>
+    <input type="text" name="op2"  placeholder="Enter option 2"><br/>
+    <input type="text" name="op3"  placeholder="Enter option 3"><br/>
+    <input type="text" name="op4"  placeholder="Enter option 4"><br/>
+    <input type="text" name="answer"  placeholder="Enter answer"><br/>
+    
+    <button type="submit"> Upload New Question </button>
+ 
+</form>
+    </div> 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+
+
+
+
+
+<script src="{% static 'js/upload.js' %}"></script>
+
+{% endblock content %}

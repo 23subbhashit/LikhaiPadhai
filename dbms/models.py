@@ -116,3 +116,19 @@ class Exam(models.Model):
     user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     def __str__(self):
         return str(self.examname)
+
+class Quiz(models.Model):
+    question = models.CharField(max_length=1000)
+    op1 = models.CharField(max_length=100)
+    op2 = models.CharField(max_length=100)
+    op3 = models.CharField(max_length=100,default="",null=True)
+    op4 = models.CharField(max_length=100,default="",null=True)
+    answer = models.CharField(max_length=1000,default=None)
+    user = models.ForeignKey(Exam, default=None, on_delete=models.CASCADE)
+     
+    class Meta:
+        verbose_name = 'quiz'
+        verbose_name_plural = 'quizzes'
+         
+    def __str__(self):
+        return self.question
