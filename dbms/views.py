@@ -239,7 +239,11 @@ def quizresult(request, id):
         if ans == i.answer:
             c1+=1
         c+=1
-
-    context={'videos':exam,'all' : c ,'correct' : c1}
+    res = c1/c
+    if res > 0.70:
+        result = True
+    else:
+        result = False
+    context={'videos':exam,'result':result}
 
     return render(request,"dbms/test/quizresults.html",context)

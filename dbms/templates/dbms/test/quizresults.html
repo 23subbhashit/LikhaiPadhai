@@ -1,2 +1,68 @@
-<h1>{{ videos.examname }}</h1>
-<h1>{{ correct }}/{{ all }}</h1>
+
+{% load static %}
+<style>
+body {
+    text-align: center;
+  }
+    h1 {
+      color: #702963;
+      font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+      font-weight: 900;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #404F5E;
+      font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+      font-size:20px;
+      margin: 0;
+    }
+  i {
+    color: #702963;
+    font-size: 100px;
+    line-height: 200px;
+    margin-left:-15px;
+  }
+  .card {
+    background: white;
+    padding: 60px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px #C8D0D8;
+    display: inline-block;
+    margin: 0 auto;
+  }
+</style>
+<br/>
+<br/> 
+<br/>
+<br/>
+<br/>
+
+<div class="card">
+ {% if result == True %}
+      <div style="border-radius:200px; height:200px; width:200px; background: green; margin:0 auto;">
+        <i class="checkmark" style="color: white;
+    font-size: 100px;
+    line-height: 200px;
+    margin-left:-15px;">✓</i>
+      </div>
+      <br/>
+        <h1 style="color: green;"">Passed</h1> <br/>
+{% else %}
+    <div style="border-radius:200px; height:200px; width:200px; background: red; margin:0 auto;">
+        <i class="checkmark" style="color: white;
+    font-size: 100px;
+    line-height: 200px;
+    margin-left:-15px;">X</i>
+      </div>
+      <br/>
+        <h1  style="color: red;" >Failed</h1> <br/>
+
+{% endif %}
+
+</div>
+<br/>
+<br/> 
+<br/>
+<br/>
+
