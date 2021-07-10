@@ -132,3 +132,19 @@ class Quiz(models.Model):
          
     def __str__(self):
         return self.question
+
+class Results(models.Model):
+    result = models.BooleanField(default=None)
+    user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+    img = models.ForeignKey(Exam, default=None, on_delete=models.CASCADE)
+
+class Profile(models.Model):
+    description = models.CharField(max_length=1000,default=None,null=True)
+    website = models.CharField(max_length=1000,default=None,null=True)
+    role = models.CharField(max_length=100,default=None,null=True)
+    image = models.ImageField(upload_to='images/',null=True)
+
+
+    user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+
+

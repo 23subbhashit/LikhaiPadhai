@@ -1,0 +1,55 @@
+{% extends 'dbms/main.html' %}
+{% load static %}
+{% block content %}
+ 
+<link rel="stylesheet" type="text/css" href="{% static 'css/upload.css' %}">
+
+<style>
+h1 {
+  font-size: 20px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+</style>
+
+
+<div class="card">
+   <div class="col-md-6 offset-md-3 mt-5">
+       
+        <center><h1>Upate profile</h1></center>
+        <br/>
+        <form accept-charset="UTF-8" action="{% url 'uploadexam' %}" method="POST" enctype= multipart/form-data>
+        {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputName">Exam Name</label>
+            <input type="text" name="examname" class="form-control" id="exampleInputName" placeholder="Enter exam name" required="required">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1" required="required">Description</label>
+            <input type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter description">
+          </div>
+          <hr>
+          <div class="form-group mt-3">
+            <label class="mr-2">Upload Your Banner</label>
+            <input type="file" accept="image/*" name="image" required="">
+          </div>
+          <hr>
+          
+        <br/>
+          <center><button type="submit" class="btn btn-primary">Submit</button></center>
+        </form>
+    </div> 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+
+
+
+
+
+<script src="{% static 'js/upload.js' %}"></script>
+
+{% endblock content %}

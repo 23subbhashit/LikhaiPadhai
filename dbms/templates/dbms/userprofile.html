@@ -1,0 +1,355 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mdb.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    {% comment %} <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/allcourse.css' %}">
+    
+     
+     
+     
+     <link rel="icon" type = "image/png" href = "{% static 'images/school.svg' %}">
+  
+      
+    <title>Likhai Padhai</title>
+</head>
+<body>
+<style>
+
+
+body {
+  background: #F1F3FA;
+}
+
+.profile {
+  margin: 20px 0;
+}
+
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul {
+    -webkit-border-radius: 0!important;
+    -moz-border-radius: 0!important;
+    border-radius: 0!important;
+}
+.dashboard-stat, .portlet {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+.portlet {
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding: 0;
+    border-radius: 4px;
+}
+.portlet.bordered {
+    border-left: 2px solid #e6e9ec!important;
+}
+.portlet.light {
+    padding: 12px 20px 15px;
+    background-color: #fff;
+}
+.portlet.light.bordered {
+    border: 1px solid #e7ecf1!important;
+}
+.list-separated {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.profile-stat {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f4f7;
+}
+.profile-stat-title {
+    color: #7f90a4;
+    font-size: 25px;
+    text-align: center;
+}
+.uppercase {
+    text-transform: uppercase!important;
+}
+
+.profile-stat-text {
+    color: #5b9bd1;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+.profile-desc-title {
+    color: #7f90a4;
+    font-size: 17px;
+    font-weight: 600;
+}
+.profile-desc-text {
+    color: #7e8c9e;
+    font-size: 14px;
+}
+.margin-top-20 {
+    margin-top: 20px!important;
+}
+[class*=" fa-"]:not(.fa-stack), [class*=" glyphicon-"], [class*=" icon-"], [class^=fa-]:not(.fa-stack), [class^=glyphicon-], [class^=icon-] {
+    display: inline-block;
+    line-height: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+.profile-desc-link i {
+    width: 22px;
+    font-size: 19px;
+    color: #abb6c4;
+    margin-right: 5px;
+}
+
+
+</style>
+
+<br/>
+<br/>
+
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+
+      {% if profile.image.url != None  %}
+            <center>
+        
+				<div class="profile-userpic">
+					<img src="https://gravatar.com/avatar/31b64e4876d603ce78e04102c67d6144?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png"   class="img-responsive" alt="">
+				</div>
+
+            </center>
+
+      {% endif %}
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						{{ profile.user.username }}
+					</div>
+          {% if profile.user.role != None  %}
+					<div class="profile-usertitle-job">
+						{{ profile.user.role }}
+					</div>
+          {% endif %}
+				</div>
+				<div class="profile-userbuttons">
+					<a href="#" type="button" class="btn btn-success btn-sm">Edit</a>
+                    <a href="{% url 'cityform' %}" type="button" class="btn btn-danger btn-sm">Home Page</a>
+				</div>
+				
+			  <br/> 
+           <div class="portlet light bordered">
+                                                
+                                                <br/>
+                                                 <div>
+                                                    <h4 class="profile-desc-title">About {{ profile.user.username }}</h4>
+                                                    {% if profile.description != None  %}
+                                                    <span class="profile-desc-text"> {{ profile.description }}</span>
+                                                    {% endif %}
+
+                                                    {% if profile.website != None  %}
+                                                    <div class="margin-top-20 profile-desc-link">
+                                                        <i class="fa fa-globe"></i>
+                                                        <a href="https://www.apollowebstudio.com">{{ profile.website }}</a>
+                                                    </div>
+                                                    {% endif  %}
+                                                    
+ </div>
+ </div>                   
+                                           
+        
+        
+			</div>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+			  {% for plant in exam  %} 
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="course_card">
+      <div class="course_card_content">
+        <h3 class="title">{{ plant.img.examname }}</h3>
+        <h3 class="title">{{ plant.id }}</h3>
+        {% if plant.result == True %}
+        <p class="description">Passed</p>
+        {% else %}
+        <p class="description">Failed</p>
+        {% endif %}
+      </div>
+      <div class="course_card_footer"><a class="nav-item" href="{% url 'detail' plant.id %}">Course Page</a>
+      {% comment %} <a class="nav-item" href="https://www.smartcodehub.com/blog">Learn More</a> {% endcomment %}
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+  
+  
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

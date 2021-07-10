@@ -7,12 +7,32 @@ from .forms import SignUpForm,Form,ExamForm
 
 group = Group(name = "Editor")
 
-from .models import Student,Img,Videos,Enroll,Exam,Quiz
+from .models import Student,Img,Videos,Enroll,Exam,Quiz,Results,Profile
 # Create your views here.
 
 def form(request):
-    
+    try:
+        G=Profile.objects.get(user=request.user)
+        #print(G)
+        if G.id!=None:
+            return redirect('cityform1')
+    except:
+        pass
+    G=Profile()
+    G.user=request.user
+    G.save()
     return render(request,'dbms/form.html')
+
+def form1(request):
+    return render(request,'dbms/form1.html')
+
+def userprofile(request):
+    quizattempted =Results.objects.all().filter(user=request.user)
+    
+    G=Profile.objects.get(user = request.user)
+    context  = {'exam' : quizattempted , 'profile':G}
+
+    return render(request,'dbms/userprofile.html' ,context)
 
 def adminhome(request):
     if request.user.is_staff != True:
@@ -207,6 +227,7 @@ def examdetail(request, id):
 
 
 def uploadquizcontent(request):
+
     if request.method == 'POST': 
          
         question = request.POST['question']
@@ -227,10 +248,21 @@ def uploadquizcontent(request):
 
 
 def quizresult(request, id):
-
-    exam=Exam.objects.get(id=id)
     
+     
+    
+    
+    try:
+        exam=Exam.objects.get(id=id)
+        G = Results.objects.get(img=exam,user=request.user)
+        #print(G)
+        if G.id!=None:
+            return redirect('cityform')
 
+        
+    except:
+        pass
+    exam=Exam.objects.get(id=id)
     quiz=Quiz.objects.all().filter(user=exam)
     c = 0
     c1 = 0
@@ -245,5 +277,9 @@ def quizresult(request, id):
     else:
         result = False
     context={'videos':exam,'result':result}
+
+    content = Results(result = result,img = exam )
+    content.user= request.user
+    content.save()
 
     return render(request,"dbms/test/quizresults.html",context)
