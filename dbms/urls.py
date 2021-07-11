@@ -12,6 +12,7 @@ urlpatterns = [
     path('uploadcontent',views.uploadcoursecontent,name="uploadcontent"),
     path('uploadquizcontent',views.uploadquizcontent,name="uploadquizcontent"),
     path('profile',views.userprofile,name="profile"),
+    path('editprofile',views.editprofile,name="editprofile"),
     path('enroll',views.enrollcourse,name="enroll"),
     path('tests',views.tests,name="tests"),
     path('exams',views.allexams,name="exams"),

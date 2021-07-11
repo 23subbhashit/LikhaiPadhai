@@ -238,7 +238,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
             <center>
         
 				<div class="profile-userpic">
-					<img src="https://gravatar.com/avatar/31b64e4876d603ce78e04102c67d6144?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png"   class="img-responsive" alt="">
+					<img src="{{ profile.image.url }}" class="img-responsive" alt="">
 				</div>
 
             </center>
@@ -255,7 +255,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
           {% endif %}
 				</div>
 				<div class="profile-userbuttons">
-					<a href="#" type="button" class="btn btn-success btn-sm">Edit</a>
+					<a href="{% url 'editprofile' %}" type="button" class="btn btn-success btn-sm">Edit</a>
                     <a href="{% url 'cityform' %}" type="button" class="btn btn-danger btn-sm">Home Page</a>
 				</div>
 				
@@ -272,7 +272,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
                                                     {% if profile.website != None  %}
                                                     <div class="margin-top-20 profile-desc-link">
                                                         <i class="fa fa-globe"></i>
-                                                        <a href="https://www.apollowebstudio.com">{{ profile.website }}</a>
+                                                        <a href="{{ profile.website}}">Website</a>
                                                     </div>
                                                     {% endif  %}
                                                     

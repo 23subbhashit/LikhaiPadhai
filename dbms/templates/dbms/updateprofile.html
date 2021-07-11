@@ -19,15 +19,19 @@ h1 {
        
         <center><h1>Upate profile</h1></center>
         <br/>
-        <form accept-charset="UTF-8" action="{% url 'uploadexam' %}" method="POST" enctype= multipart/form-data>
+        <form accept-charset="UTF-8" action="{% url 'editprofile' %}" method="POST" enctype= multipart/form-data>
         {% csrf_token %}
           <div class="form-group">
-            <label for="exampleInputName">Exam Name</label>
-            <input type="text" name="examname" class="form-control" id="exampleInputName" placeholder="Enter exam name" required="required">
+            <label for="exampleInputName">Description</label>
+            <input type="text" name="description" class="form-control" id="exampleInputName" placeholder="Enter exam name" required="required">
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1" required="required">Description</label>
-            <input type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter description">
+            <label for="exampleInputEmail1" required="required">Website</label>
+            <input type="text" name="website" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter description">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1" required="required">Role</label>
+            <input type="text" name="role" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter description">
           </div>
           <hr>
           <div class="form-group mt-3">

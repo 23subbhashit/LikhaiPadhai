@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User, Group
-from .forms import SignUpForm,Form,ExamForm
+from .forms import SignUpForm,Form,ExamForm,ProfileForm
 
 
 group = Group(name = "Editor")
@@ -283,3 +283,17 @@ def quizresult(request, id):
     content.save()
 
     return render(request,"dbms/test/quizresults.html",context)
+
+def editprofile(request):
+    if request.method=="POST":
+        content1 = Profile.objects.get(user=request.user)
+        content1.delete()
+        content = Profile(user = request.user)
+        content.description = request.POST['description']
+        content.image = request.FILES['image']
+        content.role = request.POST['role']
+        content.website = request.POST['website']
+        content.save()
+        return redirect('profile')
+
+    return render(request,'dbms/updateprofile.html')
