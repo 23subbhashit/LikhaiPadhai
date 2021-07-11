@@ -564,67 +564,26 @@
                                 <h3>Useful Links</h3>
                             </div>
                             <ul>
-                            <li >
-        <a  href="{% url 'allcourse' %}" style="color: #DDD;" >
-       
-          CBSE
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li >
-        <a  href="{% url 'allcourse' %}" style="color: #DDD;" >
-       
-          CBSE
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li >
-        <a  href="{% url 'allcourse' %}" style="color: #DDD;" >
-       
-          ICSE
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li >
-        <a  href="{% url 'allcourse' %}" style="color: #DDD;" >
-       
-          Gate
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li >
-        <a  href="{% url 'allcourse' %}" style="color: #DDD;" >
-       
-          JEE Mains/Advanced
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-                                {% if user.is_authenticated %}
-    {% if user.is_staff %}
-      <li >
-        <a  href="{% url 'users' %}" style="color: #DDD;" >
-       
-          Student
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      
-    {% endif %}
-    {% endif %}
+                            
+                              
+    
     {% if user.is_authenticated %}
-    <li>
-        <a  href="{% url 'tests' %}" style="color: #DDD;">
-          
-          Scholarships
-          </a>
-      </li>
+    
       <li>
-        <a  href="{% url 'city' %}" style="color: #DDD;">
-          
-          Enrolled Courses
-          </a>
+        <a href="{% url 'allcourse' %}" style="color: #DDD;" >
+        
+          Courses
+          <span class="sr-only">(current)</span>
+        </a>
       </li>
-      <li>
+       <li>
+        <a href="{% url 'exams' %}" style="color: #DDD;" >
+        
+          Exams
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+       <li>
         <a href="{% url 'chatbot' %}" style="color: #DDD;" >
         
           FAQ
@@ -634,7 +593,7 @@
     {% endif %}
       {% if user.is_authenticated %}
       <li>
-          <a " href="{% url 'cityform' %}" style="color: #DDD;">My account</a>
+          <a " href="{% url 'profile' %}" style="color: #DDD;">My account</a>
 
       </li>
       <li>
@@ -673,33 +632,34 @@
                         <div class="footer-menu">
                             <ul>
                                 {% if user.is_authenticated %}
-    {% if user.is_staff %}
       <li >
-        <a  href="{% url 'users' %}" style="color: #DDD;" >
+        <a  href="{% url 'allcourse' %}" style="color: #DDD;" >
        
-          Student
+          Courses
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      
-    {% endif %}
+
+      <li >
+        <a  href="{% url 'exams' %}" style="color: #DDD;" >
+       
+          Exams
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
     {% endif %}
     {% if user.is_authenticated %}
       <li>
-        <a  href="{% url 'city' %}" style="color: #DDD;">
-          RegisterStudent</a>
-      </li>
-      <li>
         <a href="{% url 'chatbot' %}" style="color: #DDD;" >
         
-          Chatbot
+          FAQ
           <span class="sr-only">(current)</span>
         </a>
       </li>
     {% endif %}
       {% if user.is_authenticated %}
       <li>
-          <a " href="{% url 'cityform' %}" style="color: #DDD;">My account</a>
+          <a " href="{% url 'profile' %}" style="color: #DDD;">My account</a>
 
       </li>
       <li>

@@ -18,9 +18,12 @@ def form(request):
             return redirect('cityform1')
     except:
         pass
-    G=Profile()
-    G.user=request.user
-    G.save()
+    try : 
+        G=Profile()
+        G.user=request.user
+        G.save()
+    except:
+        pass
     return render(request,'dbms/form.html')
 
 def form1(request):
