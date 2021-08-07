@@ -1,4 +1,4 @@
-# DataEntry
+# LikhaiPadhai
 
 ## SMTP setup:
 Before using this app, do enable following things:
